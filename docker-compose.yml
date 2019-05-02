@@ -1,6 +1,18 @@
 version: '3.3'
 services:
+ mysql:
+   image: mysql
+   environment:
+    MYSQL_DATABASE: calcard
+    MYSQL_ROOT_PASSWORD: mic@2019
+    MYSQL_ROOT_HOST: '%'
+   ports:
+   - "3306:3306"
+   restart: always
+
  ubutalha:
    image: michaelbferreira/ubutalha:latest 
    ports: 
      - "8080:8080"
+   depends_on:
+   - mysql     
